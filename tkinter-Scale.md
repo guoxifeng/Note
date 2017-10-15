@@ -1,0 +1,38 @@
+### 窗口主体框架
+
+1. 主窗口：窗口标题，窗口尺寸
+```python
+import tkinter as tk
+
+window = tk.Tk()
+window.title('my window')
+window.geometry('200*200')
+
+window.mainloop()
+```
+
+2. 创建一个label控件,用于显示刻度尺大小
+```python
+l = tk.Label(window,bg='yellow',window=20,text='empty')
+l.pack()
+```
+
+3. 创建触发事件，显示你当前在刻度尺上对的位置
+```python
+def print_selection(v):
+    l.config(text='you have selected ' + v)
+```
+
+4. 最后一步创建一个Scale，并触发print_selection()方法，最后别忘了window.mainloop()放在最后一句
+* from_=5,to=11 --标尺的最大值到最小值 
+* orient=tk.HORIZONTAL --尺寸显示方式(横向)
+* length=200 --显示长度
+* showvalue=0 --当移动游标时显示的值，0表示不显示 
+* tickinterval=2 --标签单位长度,每隔两个单位显示数值
+* resolution=0.01 --显示的精度，0.01表示保留两位小数，0.1保留一位
+* command=print_selection --触发事件
+```python
+s = tk.Scale(window, label='try me', from_=5, to=11, orient=tk.HORIZONTAL,
+             length=200, showvalue=0, tickinterval=2, resolution=0.01, command=print_selection)
+s.pack()
+```
