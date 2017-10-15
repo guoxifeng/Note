@@ -10,7 +10,7 @@ window.geometry('200*200')
 
 window.mainloop()
 ```
-[Scale1](Scale1.png)
+![Scale1](Scale1.png)
 2. 创建一个label控件,用于显示刻度尺大小
 ```python
 l = tk.Label(window,bg='yellow',window=20,text='empty')
@@ -36,4 +36,4 @@ s = tk.Scale(window, label='try me', from_=5, to=11, orient=tk.HORIZONTAL,
              length=200, showvalue=0, tickinterval=2, resolution=0.01, command=print_selection)
 s.pack()
 ```
-[Scale2](Scale2.png)
+![Scale2](Scale2.png)
