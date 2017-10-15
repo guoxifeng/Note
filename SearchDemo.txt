@@ -1,0 +1,47 @@
+新建maven项目，使用springMVC框架，
+使用mysql数据库，新建member会员表，
+表字段有，memberid会员号，level会员等级，name会员姓名，tel会员手机号码，addr联系地址
+结构如下：
+memberid   level   name    tel          addr
+560152001  10      小树	   13320110022  上海市东昌路
+
+
+web页面如下：
+
+
+会员号：                搜索
+
+输入会员号， 点击搜索，搜索结果不跳转，将查询到的信息，展示在这个页面上
+
+需要用到@注入的springMVC的特点，根据会员号查询数据库表，查询的结果保存在一个member的内部对象里面，
+页面展示的时候，从这个member的内部对象里面取出数据后展示在页面
+
+1. SpringBoot -- 数据库设计
+	1) 数据库：mybaties -- 搜索全部 按照会员号搜索
+		使用MySQL数据库 -- 创建表 添加记录 --> sql语句
+		表明：member
+		字段		类型		描述		举例
+		memberid	long		会员号		560152001
+		level		short		等级		10
+		name		String		姓名		小树
+		tel			int			联系电环	13320110022
+		addr		String		联系地址	上海市东昌路
+		
+	2） 搜索全部：select * from member
+		通过memberid：select memberid from member --> memberid通过前端输入框获取,要对其判断格式
+		
+2. 前端设计
+	1）样式：bootstrap上下结构
+		上：输入框 搜索按钮
+		下：表格 -->悬浮时有背景颜色的款式
+	2）请求：通过Ajax发送请求
+	3）渲染：通过artTemplate渲染页面
+	4）服务器端：通过Themyleaf插件
+
+3. Controller层
+	1） 接受请求：all	byId
+	2)	格式化请求数据
+	3） 通过mybaties注解请求数据库
+	4） 返回json数据
+		
+		
