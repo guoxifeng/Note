@@ -1,9 +1,13 @@
 # 目录
+
 - [增加 - insert](#增加)
 - [删除 - delete](#删除)
 - [修改 - update](#修改)
 - [查找 - query](#查找)
-- [sql标签 - sql](#sql标签)
+- [sql标签](#sql标签)
+- [foreach标签](#foreach标签)
+- [trim标签](#trim标签)
+- [resultMap标签](#resultMap标签)
 
 ## 增加
 
@@ -157,7 +161,7 @@ List<Object> queryFields(@Param("field") Object field);
 <include refid="columns"/>
 ```
 
-# foreach 标签
+# foreach标签
 
 - 入参为<code>parameterType="java.util.List"</code>
 
@@ -193,12 +197,16 @@ map.put("status", 1);
 </select>
 ```
 
-# trim 标签
+# trim标签
 
 - 各个属性含义
 
 ```
+prefix 在之前
+prefixOverrides 覆盖最前面
 
+suffix 最后面
+suffixOverrides 覆盖最后的
 ```
 
 - 动态更新
@@ -225,7 +233,7 @@ map.put("status", 1);
 </select>
 ```
 
-# resultMap 标签
+# resultMap标签
 
 - 实体类与表字段映射关系: 返回类型必需使用其接收
 
