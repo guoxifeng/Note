@@ -2,4 +2,4 @@
 
 ## spring mvc
 
-- [mybatis](mybatis/sql.md)
+- [mybatis - sql](mybatis/sql.md)
