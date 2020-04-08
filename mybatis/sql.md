@@ -1,6 +1,13 @@
+# 目录
+- [增加 - insert](#增加)
+- [删除 - delete](#删除)
+- [修改 - update](#修改)
+- [查找 - query](#查找)
+- [sql标签 - sql](#sql标签)
+
 ## 增加
 
-- **增加一条记录 <code>int insert(Domain domain)</code>**
+- 增加一条记录 <code>int insert(Domain domain)</code>
 
 ```xml
 <!--新增一条记录-->
@@ -10,7 +17,7 @@
 </insert>
 ```
 
-- **批量新增 <code>int insertBatch(List<Domain> domains)</code>**
+- 批量新增 <code>int insertBatch(List<Domain> domains)</code>
 
 ```xml
 <!--批量新增记录-->
@@ -25,7 +32,7 @@
 
 ## 删除
 
-- **根据id删除一条记录 <code>int deleteById(Long id)</code>**
+- 根据id删除一条记录 <code>int deleteById(Long id)</code>
 
 ```xml
 <!--通过主键删除-->
@@ -34,7 +41,7 @@
 </delete>
 ```
 
-- **根据ids批量删除记录 <code>int deleteByIds(List<Long> ids)</code>**
+- 根据ids批量删除记录 <code>int deleteByIds(List<Long> ids)</code>
 
 ```xml
 <!--通过主键批量删除-->
@@ -49,7 +56,7 @@
 
 ## 修改
 
-- **根据id修改 <code>int update(Domain domain)</code>**
+- 根据id修改 <code>int update(Domain domain)</code>
 
 ```xml
 <!--通过主键修改数据-->
@@ -61,11 +68,11 @@
 </update>
 ```
 
-- **批量修改单独写 需要特别注意不要修改全部数据**
+- 批量修改单独写 需要特别注意不要修改全部数据
 
 ## 查找
 
-- **根据id查找一个实体类 <code>Domain queryById(Long id)</code>**
+- 根据id查找一个实体类 <code>Domain queryById(Long id)</code>
 
 ```xml
 <!--查询单个-->
@@ -76,21 +83,21 @@
 </select>
 ```
 
-- **查询一个字段**
+- 查询一个字段
 
 ```java
 @Select("select name from table where id = #{id}")
 String queryFieldById(@Param("id") Long id);
 ```
 
-- **查询一列数据并按照更新时间倒叙输出**
+- 查询一列数据并按照更新时间倒叙输出
 
 ```java
 @Select("select distinct(name) from table where field = #{field}  order by update_time desc")
 List<Object> queryFields(@Param("field") Object field);
 ```
 
-- **查询所有并按照更新时间倒叙输出 <code>List<Domain> queryAll(Domain domain, @Param("offset") int offset, @Param("limit") int limit)</code>**
+- 查询所有并按照更新时间倒叙输出 <code>List<Domain> queryAll(Domain domain, @Param("offset") int offset, @Param("limit") int limit)</code>
 
 ```xml
 <!-- 根据条件查询所有 -->
@@ -105,7 +112,7 @@ List<Object> queryFields(@Param("field") Object field);
 </select>
 ```
 
-- **查询所有总数 <code>int queryAllTotal(Domain domain)</code>**
+- 查询所有总数 <code>int queryAllTotal(Domain domain)</code>
 
 ```xml
 <!-- 根据条件查询总数 -->
@@ -118,9 +125,9 @@ List<Object> queryFields(@Param("field") Object field);
 </select>
 ```
 
-# sql 标签
+# sql标签
 
-- **列名定义**
+- 列名定义
 
 ```xml
 <sql id="columns">
@@ -128,7 +135,7 @@ List<Object> queryFields(@Param("field") Object field);
 </sql>
 ```
 
-- **条件语句定义**
+- 条件语句定义
 
 ```xml
 <!-- 查询字段 -->
@@ -144,7 +151,7 @@ List<Object> queryFields(@Param("field") Object field);
 </sql>
 ```
 
-- **使用**
+- 使用
 
 ```xml
 <include refid="columns"/>
@@ -152,7 +159,7 @@ List<Object> queryFields(@Param("field") Object field);
 
 # foreach 标签
 
-- **入参为<code>parameterType="java.util.List"</code>**
+- 入参为<code>parameterType="java.util.List"</code>
 
 ```xml
 <delete id="deleteByIds" parameterType="java.util.List">
@@ -164,7 +171,7 @@ List<Object> queryFields(@Param("field") Object field);
 </delete>
 ```
 
-- **入参为<code>parameterType="java.util.Map"</code>**
+- 入参为<code>parameterType="java.util.Map"</code>
 
 ```java
 // 入参
